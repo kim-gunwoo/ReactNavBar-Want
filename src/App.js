@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from "styled-components";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-function App() {
+import Nav from "components/nav/Nav";
+import { MOBILE_SCREEN } from "utils/useResponsive";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Nav />
+      <MainContainer>MainContainer</MainContainer>
+    </BrowserRouter>
   );
 }
 
-export default App;
+const MainContainer = styled.main`
+  padding-top: 60px;
+
+  @media only screen and (max-width: ${MOBILE_SCREEN}px) {
+    padding-top: 120px;
+  }
+`;
