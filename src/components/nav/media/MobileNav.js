@@ -32,7 +32,7 @@ export default function MobileNav() {
           <LinkList>
             <Item>
               <img
-                src="/images/search-magnifier.svg"
+                src="/images/magnify.png"
                 alt="img"
                 width="13px"
                 height="13px"
@@ -96,6 +96,6 @@ const ButtonLink = styled(Link)`
   border: 1px solid #36f;
   border-radius: 17px;
   margin-left: 30px;
-  padding: 5px 10px;
+  padding: 10px;
   font-weight: 400;
 `;

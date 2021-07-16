@@ -44,7 +44,7 @@ export default function DeskTopNav() {
           <LinkList>
             <Item>
               <img
-                src="/images/search-magnifier.svg"
+                src="/images/magnify.png"
                 alt="img"
                 width="13px"
                 height="13px"
@@ -94,6 +94,7 @@ const Item = styled.li`
   padding: 15px;
   line-height: 20px;
   font-weight: 600;
+  cursor: pointer;
 `;
 
 const ItemHover = styled(Item)`

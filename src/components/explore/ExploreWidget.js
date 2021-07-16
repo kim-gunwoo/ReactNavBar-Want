@@ -8,7 +8,10 @@ export default function ExploreWidget({ item }) {
     <Container>
       {main?.map((m, index) => (
         <Item key={index} to={m.link}>
-          <Title>{m.text}</Title>
+          <Wrapper>
+            <Title>{m.text}</Title>
+            <i>ᐳ</i>
+          </Wrapper>
         </Item>
       ))}
       {sub?.map((s, index) => (
@@ -19,6 +22,7 @@ export default function ExploreWidget({ item }) {
       {more && (
         <Item to="">
           <SubTitle>더보기</SubTitle>
+          <i>ᐳ</i>
         </Item>
       )}
     </Container>
@@ -31,13 +35,18 @@ const Container = styled.div`
   text-align: left;
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 15px;
+`;
+
 const Title = styled.h2`
   position: relative;
   font-size: 17px;
   color: #333;
   line-height: 20px;
-  padding-right: 20px;
-  padding-bottom: 15px;
   width: 100%;
   overflow: hidden;
 `;
@@ -54,5 +63,10 @@ const SubTitle = styled.h3`
 `;
 
 const Item = styled(Link)`
-  display: block;
+  display: flex;
+  align-items: center;
+
+  i {
+    color: #999;
+  }
 `;
