@@ -3,16 +3,12 @@ import { useState, useEffect, useCallback } from "react";
 export const MOBILE_SCREEN = 825;
 
 export const useIsMobile = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= MOBILE_SCREEN);
+  const [isMobile, setIsMobile] = useState(checkedMobileScreen());
 
   const handleWindowResize = useCallback(
     (event) => {
-      const screenSize = window.innerWidth;
-
-      if (!isMobile && screenSize <= MOBILE_SCREEN) {
-        setIsMobile(true);
-      } else if (isMobile && screenSize >= MOBILE_SCREEN) {
-        setIsMobile(false);
+      if (isMobile !== checkedMobileScreen()) {
+        setIsMobile(checkedMobileScreen());
       }
     },
     [isMobile]
@@ -26,4 +22,8 @@ export const useIsMobile = () => {
   }, [handleWindowResize]);
 
   return isMobile;
+};
+
+const checkedMobileScreen = () => {
+  return window.innerWidth <= MOBILE_SCREEN;
 };
